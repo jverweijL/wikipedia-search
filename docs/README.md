@@ -1,14 +1,18 @@
-# ${My Projects's Name}
+# Wikipedia Search
 
-A basic description of my project.
+Based upon the Wikipedia api this widget allows you to search Wikipedia and display results using an Widget Template (ADT).
 
-Developed to run on the following versions of Liferay and/or Commerce: `Liferay DXP 7.3`, `Commerce 2.1.1`, `etc`
+Inspired by a prospect that needed this for background investigation and a search workshop to the many options you have with search in Liferay.
+
+Example Wikipedia API call `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=1&srsearch=Nelson%20Mandela&sroffset=0`
+
+Developed to run on the following versions of Liferay: `Liferay DXP 7.3`
 
 Built with [Liferay Workspace](https://help.liferay.com/hc/en-us/articles/360029147471-Liferay-Workspace) and [Blade CLI](https://help.liferay.com/hc/en-us/articles/360029147071-Blade-CLI).
 
-*Include an image or gif that represents your project*
+*Example result using Wikipedia Search Widget*
 
-![screenshot](https://placedog.net/500?id=12)
+![screenshot](img01.png)
 
 ## How to Build and Deploy to Liferay
 
@@ -35,32 +39,39 @@ liferay.workspace.home.dir=/path/to/liferay/home
 
 [Adding Widgets to a Page.](https://learn.liferay.com/dxp/7.x/en/site-building/creating-pages/using-widget-pages/adding-widgets-to-a-page.html)
 
-*Explain what's required to set up and make use of all of the projects features.*
 
-https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=1&srsearch=Nelson%20Mandela&sroffset=0
+1. Create a Widget Template
+1. Configure the Widget Template in the configuration settings of the widget
 
-Example adt
+Very basic example Widget Template (a.k.a. ADT)
 ```
 <#if entries?has_content>
 	<#list entries as curEntry>
-	<div class="mb-3">
-	    <h3>${curEntry.title?remove_beginning("\"")?remove_ending("\"")}</h3>
-	    ${curEntry.snippet?remove_beginning("\"")?remove_ending("\"")}... 
-		<a href="http://en.wikipedia.org/?curid=${curEntry.pageid}" target="_blank">Wikipedia</a>.
-	</div>
+		<div class="mb-3">
+		${curEntry.title}
+		</div>
+	</#list>
+</#if>
+```
+
+Example Widget Template (a.k.a. ADT)
+```
+<#if entries?has_content>
+	<#list entries as curEntry>
+		<div class="mb-3">
+			<h3>${curEntry.title?remove_beginning("\"")?remove_ending("\"")}</h3>
+			${curEntry.snippet?remove_beginning("\"")?remove_ending("\"")}... 
+			<a href="http://en.wikipedia.org/?curid=${curEntry.pageid}" target="_blank">Wikipedia</a>.
+		</div>
 	</#list>
 </#if>
 ```
 
 ### Features
 
-* Feature One
-    * ![feature one](https://placedog.net/500?id=26)
-* Feature Two
-    * ![feature two](https://placedog.net/500?id=27)
-* Feature Three
-    * ![feature three](https://placedog.net/500?id=29)
+* Search Wikipedia
+* Widget Template supported
+* Configuration
 
-*Wherever possible, include more images or gifs that explain the features of your project.*
 
 ## Issues & Questions Welcome
