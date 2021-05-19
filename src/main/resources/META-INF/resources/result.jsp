@@ -2,10 +2,6 @@
 <%@ taglib prefix="clay" uri="http://liferay.com/tld/clay" %>
 <%@ include file="/init.jsp" %>
 
-<portlet:renderURL var="searchURL">
-	<portlet:param name="mvcRenderCommandName" value="/wikipedia/search"/>
-</portlet:renderURL>
-
 <liferay-portlet:actionURL name="/wikipedia/search" var="search" />
 
 <div class=wikipedia-searchbar">
@@ -31,16 +27,6 @@
 				</div>
 			</div>
 		</aui:fieldset>
-
-		<%--<aui:fieldset-group markupView="lexicon">
-			<aui:fieldset label="">
-				<aui:input label="Query" name="srsearch" type="text" required="true"/>
-			</aui:fieldset>
-			<aui:button-row>
-				<aui:button cssClass="btn-lg" type="submit" value="Search"/>
-			</aui:button-row>
-		</aui:fieldset-group>--%>
-
 	</aui:form>
 </div>
 <div class="wikipedia-searchresults">
@@ -51,9 +37,6 @@
 			displayStyleGroupId="<%= displayStyleGroupId %>"
 			entries="${entries}"
 	>
-
-		<%-- The code that will be rendered by default when there is no
-        template available should be inserted here. --%>
 		<clay:alert
 				message="Please select a widget template using the configuration settings"
 				title="Info"

@@ -69,7 +69,7 @@ public class WikipediaSearchMVCActionCommand extends BaseMVCActionCommand {
 
             actionRequest.setAttribute("entries",entries);
 
-            System.out.println("the result is " + jsonResult);
+            _log.debug("the result is " + jsonResult);
         } catch (IOException e) {
             e.printStackTrace();
         }
