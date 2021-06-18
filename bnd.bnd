@@ -4,3 +4,6 @@ Bundle-Version: 1.0.0
 Export-Package: wikipedia.search.constants
 
 Import-Package: !org.apache.avalon.framework.logger,!org.apache.log,*
+
+
+-metatype: *
